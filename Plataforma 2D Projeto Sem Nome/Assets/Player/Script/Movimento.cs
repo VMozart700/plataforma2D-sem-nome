@@ -22,6 +22,8 @@ public class Movimento : MonoBehaviour
     {
         Movimentacao();
         Pulinho();
+
+        
     }
 
     void Movimentacao()
@@ -36,11 +38,13 @@ public class Movimento : MonoBehaviour
         }
     }
 
-     IEnumarator Pulinho()
+    void Pulinho()
     {
        if(Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow))
        {
           rig.AddForce(Vector2.up*velPulo,ForceMode2D.Impulse);
+          
+         
              
        
        }
