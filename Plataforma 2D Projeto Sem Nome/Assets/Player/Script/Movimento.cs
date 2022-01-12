@@ -27,13 +27,20 @@ public class Movimento : MonoBehaviour
 
     void Movimentacao()
     {
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        float direcao = Input.GetAxis("Horizontal");
+        rig.velocity = new Vector2(direcao*velocidade,rig.velocity.y);
+
+        if(direcao > 0)
         {
-             rig.velocity = new Vector2(-velocidade,0);
+           transform.eulerAngles = new Vector2(0,0);
         }
-        if(Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))
+        if(direcao < 0)
         {
-            rig.velocity = new Vector2(velocidade,0);
+           transform.eulerAngles = new Vector2(0,180);
+        }
+        if(direcao == 0)
+        {
+           
         }
     }
 
