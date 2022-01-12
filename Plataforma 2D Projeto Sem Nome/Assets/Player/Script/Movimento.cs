@@ -9,8 +9,7 @@ public class Movimento : MonoBehaviour
 
     public float velocidade;
     public float velPulo;
-    public float Gravidade;
-    public float timer;
+    public bool EstaPulando;
     
     void Start()
     {
@@ -40,12 +39,9 @@ public class Movimento : MonoBehaviour
 
     void Pulinho()
     {
-       if(Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow))
+       if(Input.GetKeyDown(KeyCode.W) && !EstaPulando)
        {
-          rig.AddForce(Vector2.up*velPulo,ForceMode2D.Impulse);
-          
-         
-             
+          rig.velocity = new Vector2(0,velPulo); 
        
        }
     }
